@@ -13,17 +13,29 @@
   * { box-sizing: border-box; }
   a { color: #6B2036; text-decoration: none; }
   a:hover { color: #8C3348; }
-  /* Light mobile safety net (not a full responsive pass) */
-  @media (max-width: 768px) {
+  img { max-width: 100%; }
+
+  /* Responsive: tablet */
+  @media (max-width: 1024px) {
     [data-screen-label] { min-width: 0 !important; }
-    header { flex-wrap: wrap !important; padding: 12px 18px !important; gap: 10px !important; }
-    header nav { gap: 14px !important; flex-wrap: wrap !important; justify-content: center !important; order: 3; width: 100%; }
-    section { flex-direction: column !important; padding-left: 20px !important; padding-right: 20px !important; }
-    section > div { width: 100% !important; flex-basis: auto !important; }
-    h1 { font-size: 30px !important; width: auto !important; height: auto !important; max-width: 100% !important; }
-    h2 { font-size: 24px !important; }
+    header { padding: 14px 32px !important; }
+    section { padding-left: 32px !important; padding-right: 32px !important; }
+    [style*="repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+
+  /* Responsive: phone */
+  @media (max-width: 768px) {
+    header { flex-wrap: wrap !important; padding: 12px 20px !important; gap: 8px 16px !important; }
+    header nav { order: 3; width: 100%; justify-content: center !important; flex-wrap: wrap !important; gap: 10px 18px !important; font-size: 15px !important; }
+    section { flex-direction: column !important; align-items: stretch !important; gap: 32px !important; padding: 48px 20px !important; }
+    section > div { width: 100% !important; flex-basis: auto !important; max-width: 100% !important; }
+    section [style*="display:flex"] { flex-direction: column !important; align-items: stretch !important; gap: 24px !important; }
+    #top > div { padding-left: 20px !important; padding-right: 20px !important; }
     [style*="repeat(3"] { grid-template-columns: 1fr !important; }
-    [style*="grid-template-columns:1.4fr"] { grid-template-columns: 1fr !important; gap: 28px !important; }
+    [style*="1.4fr"] { grid-template-columns: 1fr !important; gap: 32px !important; }
+    h1 { font-size: 32px !important; width: auto !important; height: auto !important; max-width: 100% !important; line-height: 1.18 !important; }
+    h2 { font-size: 24px !important; }
+    iframe { max-width: 100% !important; }
   }
 </style>
 </head>

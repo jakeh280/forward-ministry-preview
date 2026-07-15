@@ -13,6 +13,18 @@
   * { box-sizing: border-box; }
   a { color: #6B2036; text-decoration: none; }
   a:hover { color: #8C3348; }
+  /* Light mobile safety net (not a full responsive pass) */
+  @media (max-width: 768px) {
+    [data-screen-label] { min-width: 0 !important; }
+    header { flex-wrap: wrap !important; padding: 12px 18px !important; gap: 10px !important; }
+    header nav { gap: 14px !important; flex-wrap: wrap !important; justify-content: center !important; order: 3; width: 100%; }
+    section { flex-direction: column !important; padding-left: 20px !important; padding-right: 20px !important; }
+    section > div { width: 100% !important; flex-basis: auto !important; }
+    h1 { font-size: 30px !important; width: auto !important; height: auto !important; max-width: 100% !important; }
+    h2 { font-size: 24px !important; }
+    [style*="repeat(3"] { grid-template-columns: 1fr !important; }
+    [style*="grid-template-columns:1.4fr"] { grid-template-columns: 1fr !important; gap: 28px !important; }
+  }
 </style>
 </head>
 <body>
@@ -151,7 +163,7 @@
       </div>
       <div>
         <div style="font-size:12.5px;font-weight:700;letter-spacing:0.08em;color:rgba(250,247,242,0.72);text-transform:uppercase;margin-bottom:16px">Explore</div>
-        <a href="about.html" style="display:block;font-size:15px;color:rgba(250,247,242,0.8);margin-bottom:10px">About Us</a>
+        <a href="ministries.html" style="display:block;font-size:15px;color:rgba(250,247,242,0.8);margin-bottom:10px">Ministries</a>
         <a href="get-involved.html" style="display:block;font-size:15px;color:rgba(250,247,242,0.8);margin-bottom:10px">Get Involved</a>
         <a href="give.html" style="display:block;font-size:15px;color:rgba(250,247,242,0.8)">Give</a>
       </div>

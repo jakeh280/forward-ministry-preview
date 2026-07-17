@@ -14,6 +14,10 @@
   a { color: #6B2036; text-decoration: none; }
   a:hover { color: #8C3348; }
   img { max-width: 100%; }
+  .nav-toggle-input { display: none; }
+  .nav-toggle-btn { display: none; background: none; border: none; padding: 6px; font-size: 26px; line-height: 1; color: #1F3D2E; cursor: pointer; }
+  .header-right { display: flex; align-items: center; gap: 16px; }
+  .nav-give-item { display: none; }
 
   /* Responsive: tablet */
   @media (max-width: 1024px) {
@@ -23,10 +27,24 @@
     [style*="repeat(3"] { grid-template-columns: repeat(2, 1fr) !important; }
   }
 
+  /* Responsive: nav collapse (hamburger) */
+  @media (max-width: 900px) {
+    header { flex-wrap: wrap !important; }
+    .nav-toggle-btn { display: flex !important; }
+    header nav { order: 3; display: none !important; width: 100%; flex-direction: column !important; align-items: stretch !important; gap: 2px !important; font-size: 16px !important; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(31,61,46,0.14); }
+    header nav a { padding: 10px 4px; }
+    .nav-toggle-input:checked ~ nav { display: flex !important; }
+  }
+
+  /* Responsive: smallest phones - drop header Give button, keep logo + hamburger on one row */
+  @media (max-width: 480px) {
+    .header-right > a[href="give.html"] { display: none !important; }
+    .nav-give-item { display: block !important; }
+  }
+
   /* Responsive: phone */
   @media (max-width: 768px) {
-    header { flex-wrap: wrap !important; padding: 12px 20px !important; gap: 8px 16px !important; }
-    header nav { order: 3; width: 100%; justify-content: center !important; flex-wrap: wrap !important; gap: 10px 18px !important; font-size: 15px !important; }
+    header { padding: 12px 20px !important; gap: 8px 16px !important; }
     section { flex-direction: column !important; align-items: stretch !important; gap: 32px !important; padding: 48px 20px !important; }
     section > div { width: 100% !important; flex-basis: auto !important; max-width: 100% !important; }
     section [style*="display:flex"] { flex-direction: column !important; align-items: stretch !important; gap: 24px !important; }
@@ -40,10 +58,11 @@
 </style>
 </head>
 <body>
-<div data-screen-label="Home" style="font-family:'Source Sans 3',system-ui,sans-serif;background:#FAF7F2;color:#241F1C;width:100%;min-width:1280px;overflow-x:hidden">
+<div data-screen-label="Home" style="font-family:'Source Sans 3',system-ui,sans-serif;background:#FAF7F2;color:#241F1C;width:100%;overflow-x:hidden">
 
   <!-- ============ NAV ============ -->
   <header style="position:sticky;top:0;z-index:50;background:#FAF7F2;border-bottom:1px solid rgba(31,61,46,0.14);display:flex;align-items:center;justify-content:space-between;padding:14px 56px">
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
     <a href="index.html" style="display:flex;align-items:center;gap:12px">
       <img src="assets/forward-ministry-logo.png" alt="Forward Ministry logo" style="height:44px;width:auto;object-fit:contain">
     </a>
@@ -53,8 +72,12 @@
       <a href="ministries.html" style="font-size:16px;font-weight:500;color:#241F1C">Ministries</a>
       <a href="sponsorship.html" style="font-size:16px;font-weight:500;color:#241F1C">Sponsorship</a>
       <a href="contact.html" style="font-size:16px;font-weight:500;color:#241F1C">Contact</a>
+      <a href="give.html" class="nav-give-item" style="font-size:16px;font-weight:700;color:#6B2036">Give</a>
     </nav>
-    <a href="give.html" style="background:#6B2036;color:#FAF7F2;font-size:15px;font-weight:600;padding:11px 26px;border-radius:3px;letter-spacing:0.02em">Give</a>
+    <div class="header-right">
+      <a href="give.html" style="background:#6B2036;color:#FAF7F2;font-size:15px;font-weight:600;padding:11px 26px;border-radius:3px;letter-spacing:0.02em">Give</a>
+      <label for="nav-toggle" class="nav-toggle-btn" aria-label="Toggle navigation menu">&#9776;</label>
+    </div>
   </header>
 
   <!-- ============ HERO ============ -->
